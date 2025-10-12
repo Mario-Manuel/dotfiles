@@ -1,0 +1,6 @@
+[Unit]
+Description=Turn on hyprsunset
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/hyprsunset --temperature 3500
