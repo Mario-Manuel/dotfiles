@@ -120,7 +120,14 @@ source $ZSH/oh-my-zsh.sh
 alias ls='eza --icons --group-directories-first -h'
 alias ll='eza -lh --icons --group-directories-first'
 alias la='eza -lAh --icons --group-directories-first'
+alias ff='fastfetch'
 
 # Created by `pipx` on 2025-08-09 12:43:59
 export PATH="$PATH:/home/mario/.local/bin"
+
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/mario/.dart-cli-completion/zsh-config.zsh ]] && . /home/mario/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
 

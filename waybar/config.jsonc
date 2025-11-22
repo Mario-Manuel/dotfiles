@@ -1,5 +1,5 @@
 {
-    "modules-left": ["custom/power", "hyprland/workspaces"],
+    "modules-left": ["custom/power", "hyprland/workspaces", "ext/workspaces"],
     "modules-center": ["clock"],
     "modules-right": ["tray", "network", "bluetooth", "pulseaudio", "battery"],
 
@@ -9,15 +9,20 @@
         "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu ",
     },
 
-    "hyprland/workspaces": {
+    //"hyprland/workspaces": 
+        "ext/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
+	"ignore-hidden": false,
+        "all-outputs": false,
+	"active-only": false,
         "warp-on-scroll": false,
-        "format": "{name}",
+        "format": "{icon}",
         "cursor": true,
+	"sort-by-id": true
     },
-
-    "hyprland/window": {
+        
+    //"hyprland/window": 
+        "dwl/window": {
         "format": "{}",
         "max-length": 50, 
         "icon": false,
