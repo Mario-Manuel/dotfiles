@@ -1,6 +1,0 @@
-[Unit]
-Description=Turn off hyprsunset
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/pkill hyprsunset

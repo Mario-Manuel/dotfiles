@@ -1,6 +1,0 @@
-[Unit]
-Description=Turn off wlsunset
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/pkill wlsunset
