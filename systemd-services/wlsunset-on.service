@@ -1,0 +1,6 @@
+[Unit]
+Description=Turn on wlsunset
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/wlsunset -T 3501 -t 3500
