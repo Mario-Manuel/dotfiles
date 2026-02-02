@@ -1,11 +1,23 @@
-@import "/home/mario/.config/colors/colors.css";
+@define-color background #0b0b0b;
+@define-color foreground #e2e2e2; 
+@define-color select #161616; 
+@define-color pink #b97a94; 
+@define-color purple #8e84b8; 
+@define-color red #a05b5b; 
+@define-color orange #a67858; 
+@define-color yellow #b8b06a; 
+@define-color green #7d927a; 
+@define-color blue #7489b0; 
+@define-color gray #242424; 
+@define-color mag #ad8ee6; 
+@define-color cyn #0db9d7; 
+@define-color white #ffffff; 
+@define-color fg #a9b1d6;
 
 * {
     font-family: "JetBrainsMono Nerd Font";
     font-size: 13px;
     font-weight: bold;
-    /*color: @foreground;
-    background: transparent;*/
     border: none;
     min-height: 0;
 }
@@ -15,122 +27,48 @@ window#waybar {
     color: @fg;
 }
 
+/* Workspaces */
 #workspaces button {
     padding: 0 6px;
     color: @cyn;
     background: transparent;
-    /*border-bottom: 3px solid @bg;*/
 }
+
 #workspaces button.active {
-    color: @cyn;
-    border-radius: 0;
     border-bottom: 3px solid @mag;
+    border-radius: 0;
 }
+
 #workspaces button.hidden {
     color: @white;
 }
-#workspaces button.hidden.active {
-    color: @cyn;
-    border-bottom: 3px solid @mag;
-}
 
 #workspaces button.urgent {
     background-color: @red;
 }
 
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
-    border-radius: 0;
-}
-/*
-}
-
-#waybar {
-    background: rgba(10, 10, 10, 0.35);
+/* Espaçamento uniforme e compacto */
+#custom-media,
+#cpu,
+#memory,
+#tray,
+#bluetooth,
+#network,
+#battery,
+#pulseaudio,
+#clock {
     margin: 0 5px;
-}
-
-#workspaces {
-    margin: 0 5px;
-}
-
-#workspaces button {
-    color: @foreground;
-    padding: 4px 8px;*/
-   /* border-radius: 6px;*/
-    /*background: transparent;
-    transition: all 0.2s ease;
-}
-
-#workspaces button:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: @pink;
-}
-
-#workspaces button.active {
-    background: rgba(255, 255, 255, 0.15);
-    color: @pink;
-}
-
-#workspaces button.urgent {
-    background-color: @red;
-    color: @background;
-}
-*/
-#custom-power {
-    margin: 0 5px;
-   /*border-radius: 6px;*/
-    padding-right: 5px;
+    padding: 0 4px;
     background: transparent;
-    transition: background 0.2s ease;
-}
-#tray {
-    margin: 0 5px;
-    /*border-radius: 6px;*/
-    padding: 0 5px;
-    background: transparent;
-    transition: background 0.2s ease;
 }
 #tray menu, .popup {
     background-color: #0b0b0b;
-   /*border-radius: 8px;*/
 }
-#bluetooth {
-    margin: 0 5px;
-   /*border-radius: 6px;*/
-    padding: 0 5px;
-    background: transparent;
-    transition: background 0.2s ease;
-}
-#network {
-    margin: 0 5px;
-    /*border-radius: 6px;*/
-    padding: 0 5px;
-    background: transparent;
-    transition: background 0.2s ease;
-}
-#battery {
-    margin: 0 5px;
-    /*border-radius: 6px;*/
-    padding: 0 5px;
-    background: transparent;
-    transition: background 0.2s ease;
-}
-#pulseaudio {
-    margin: 0 5px;
-    /*border-radius: 6px;*/
-    padding: 0 5px;
-    background: transparent;
-    transition: background 0.2s ease;
-}
-#clock {
-    margin: 0 5px;
-    padding: 0 5px;
-    background: transparent;
-    /*border-radius: 6px;*/
-    transition: background 0.2s ease;
-}
+
+/* Cores */
+#cpu { color: @red; }
+#memory { color: @green; }
+#custom-media { color: @blue; }
 
 #bluetooth { color: @yellow; }
 #network { color: @purple; }
@@ -138,22 +76,9 @@ button:hover {
 #pulseaudio { color: @orange; }
 #clock { color: @blue; }
 
-#custom-power:hover,
-#tray:hover,
-#bluetooth:hover,
-#network:hover,
-#battery:hover,
-#pulseaudio:hover,
-#clock:hover {
-    background: rgba(255, 255, 255, 0.08);
-}
-
-#custom-power {
-    color: @red;
-}
-
+/* Tooltip */
 tooltip {
     background: #0b0b0b;
-    /*border-radius: 8px;*/
     border: 1px solid #0b0b0b;
 }
+

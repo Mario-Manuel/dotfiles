@@ -1,60 +1,59 @@
 {
-    "modules-left": ["custom/power", "hyprland/workspaces", "ext/workspaces"],
+    "modules-left": ["ext/workspaces", "custom/media", "custom/dnd"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "network", "bluetooth", "pulseaudio", "battery"],
+    "modules-right": [
+        "tray",
+        "cpu",
+        "memory",
+        "network",
+        "bluetooth",
+        "pulseaudio",
+        "battery"
+    ],
 
-    "custom/power": {
-        "format" : "⭘",
-        "tooltip": false,
-        "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu ",
-    },
-
-    //"hyprland/workspaces": 
-        "ext/workspaces": {
+    "ext/workspaces": {
         "disable-scroll": true,
-	"ignore-hidden": false,
+        "ignore-hidden": false,
         "all-outputs": false,
-	"active-only": false,
+        "active-only": false,
         "warp-on-scroll": false,
         "format": "{icon}",
         "cursor": true,
-	"sort-by-id": true
+        "sort-by-id": true
     },
-        
-    //"hyprland/window": 
-        "dwl/window": {
-        "format": "{}",
-        "max-length": 50, 
-        "icon": false,
-        "tooltip": false
-    },
+
+    "dwl/window": {
+    	"format": "{}",
+     	"max-length": 50,
+     	"icon": false,
+    	"tooltip": false
+},
 
     "tray": {
         "icon-size": 20,
-        "spacing": 10,
-        "cursor": true,
+        "spacing": 8,
+        "cursor": true
     },
 
     "bluetooth": {
-        "format": " 󰂯 ",
-        "format-disabled": " 󰂲 ",
-        "format-connected": " 󰂱 ",
-        "on-click": "blueman-manager",
+        "format": "󰂯",
+        "format-disabled": "",
+        "format-connected": "󰂱",
+        "on-click": "blueman-manager"
     },
 
-   "network": {
-    "interval": 2,
-    "format-wifi": " ",
-    "format-ethernet": "  ↓{bandwidthDownBytes} ↑{bandwidthUpBytes}",
-    "format-linked": "",
-    "format-disconnected": "",
-    "tooltip": true,
-    "tooltip-format-wifi": "SSID: {essid}\nSinal: {signalStrength}%\nIP: {ipaddr}\n⬇ Download: {bandwidthDownBytes}\n⬆ Upload: {bandwidthUpBytes}",
-    "tooltip-format-ethernet": "Conexão: Ethernet\nIP: {ipaddr}\n⬇ Download: {bandwidthDownBytes}\n⬆ Upload: {bandwidthUpBytes}",
-    "tooltip-format-linked": "Ligado (sem IP)",
-    "tooltip-format-disconnected": "Sem conexão",
-    "on-click": "networkmanager_dmenu"
-
+    "network": {
+        "interval": 2,
+        "format-wifi": "",
+        "format-ethernet": " ",
+        "format-linked": "",
+        "format-disconnected": "",
+        "tooltip": true,
+        "tooltip-format-wifi": "SSID: {essid}\nSinal: {signalStrength}%\nIP: {ipaddr}\n⬇ Download: {bandwidthDownBytes}\n⬆ Upload: {bandwidthUpBytes}",
+        "tooltip-format-ethernet": "Ethernet\nIP: {ipaddr}\n⬇ Download: {bandwidthDownBytes}\n⬆ Upload: {bandwidthUpBytes}",
+        "tooltip-format-linked": "Ligado (sem IP)",
+        "tooltip-format-disconnected": "Sem conexão",
+        "on-click": "networkmanager_dmenu"
     },
 
     "battery": {
@@ -64,32 +63,40 @@
             "critical": 15
         },
         "format": "{icon} {capacity}%",
-        "format-full": "{icon} {capacity}%",
         "format-plugged": " {capacity}%",
         "format-charging": " {capacity}%",
-        "format-alt": "{icon} {capacity}%",
-        "format-icons": [" ", " ", " ", " ", " "],
-        "tooltip-format": "{time}",
-        "cursor": false,
-        "on-click": "auto-cpufreq-gtk"
+        "format-icons": ["", "", "", "", ""],
+	"tooltip-format": "{time}", 
     },
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": "  {volume}%",
+        "format-muted": " {volume}%",
         "format-bluetooth": " {volume}%",
-        "format-bluetooth-muted": "  {volume}%",
+        "format-bluetooth-muted": " {volume}%",
         "format-icons": {
-            "headphone": " ",
-            "headset": " ",
-            "default": [" "],
+            "headphone": "",
+            "headset": "",
+            "default": [""]
         },
-        "on-click": "pavucontrol",
+        "on-click": "foot -e wiremix"
+    },
+    
+    "cpu": {
+    	"format": "CPU: {usage}%",
+	"interval": 2,
+    	"tooltip": false
     },
 
-    "clock": {
+    "memory": {
+        "interval": 5,
+        "format": "Mem: {used}GiB",
+        "tooltip-format": "Disponível: {avail}GiB\nTotal: {total}GiB\nSwap: {swapUsed}GiB / {swapTotal}GiB"
+    },
+
+        "clock": {
         "format": "{:%a %d/%m/%Y ~ %H:%M:%S}",
-        "interval": 1,
+        "interval": 2,
         "tooltip-format": "<span size='15000'><tt>{calendar}</tt></span>",
         "calendar": {
             "mode": "month",
@@ -97,9 +104,24 @@
                 "months": "<span color='#b97a94'><b>{}</b></span>",
                 "weekdays": "<span color='#7489b0'><b>{}</b></span>",
                 "days": "<span color='#CDD6F4'><b>{}</b></span>",
-                "today": "<span color='#b8b06a'><b>{}</b></span>",
+                "today": "<span color='#b8b06a'><b>{}</b></span>"
             }
-        },
-        "on-click": "swaync-client -t -sw",
-    }
+        }
+    },
+
+    "custom/media": {
+        "exec": "status=$(playerctl status 2>/dev/null); meta=$(playerctl metadata --format '{{ artist }} - {{ title }}' 2>/dev/null); [ -z \"$meta\" ] && exit; case \"$status\" in Playing) icon='⏸' ;; Paused) icon='▶' ;; *) exit ;; esac; echo \"$icon $meta\"",
+        "interval": 2,
+        "return-type": "text",
+        "max-length": 20,
+    },
+
+    "custom/dnd": {
+    	"exec": "if [ \"$(dunstctl is-paused)\" = true ]; then echo '🔕'; else echo ''; fi",
+    	"interval": 2,
+    	"return-type": "markup",
+    	"tooltip": "DND ativo"
 }
+
+}
+

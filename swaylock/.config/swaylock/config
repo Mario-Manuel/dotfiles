@@ -1,0 +1,27 @@
+font=JetBrainsMono Nerd Font
+font-size=24
+
+image=~/.config/background/wall.png
+
+color=0f111acc
+inside-color=00000000
+ring-color=2e344088
+line-color=00000000
+
+key-hl-color=5e81acff
+bs-hl-color=bf616aff
+
+ignore-empty-password
+show-failed-attempts
+
+text-color=d8dee9ff
+text-clear-color=a3be8cff
+text-ver-color=ebcb8bff
+text-wrong-color=bf616aff
+
+indicator-caps-lock
+indicator
+indicator-radius=120
+indicator-thickness=10
+
+clock

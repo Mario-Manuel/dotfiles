@@ -1,19 +1,23 @@
 
+/* Base styles */
 :root {
-  --bg-primary: #272a30;
-  --bg-secondary: #262626;
-  --bg-button: #4e4e4e;
-  --bg-button-hover: #5e5e5e;
-  --text-primary: #CDD6F4;
-  --text-disabled: #5c554a;
-  --border-color: #3a3d48;
-  --priority-low: #ebdbb2;
-  --priority-normal: #83a598;
-  --priority-critical: #fb4934;
+  --bg-primary:        #1a1b26;
+  --bg-secondary:      #16161e;
+  --bg-button:         #292e42;
+  --bg-button-hover:   #414868;
+
+  --text-primary:      #c0caf5;
+  --text-disabled:     #565f89;
+
+  --border-color:      #292e42;
+
+  --priority-low:      #9ece6a;
+  --priority-normal:   #7aa2f7;
+  --priority-critical: #f7768e;
+
   --transition-standard: 0.15s ease-in-out;
 }
 
-/* Base styles */
 * {
   outline: none;
 }

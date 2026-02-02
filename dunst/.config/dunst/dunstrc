@@ -1,0 +1,74 @@
+[global]
+
+# text
+font = JetBrains Mono Nerd 10
+markup = full
+
+# monitor
+monitor = 0
+follow = keyboard
+
+# geometry
+width = 300
+height = (0,300)
+origin = top-right
+offset = (10,10)
+frame_width = 3
+frame_color = "#292e42"
+corner_radius = 0
+corners = all
+stack_duplicates = true
+hide_duplicate_count = false
+show_indicators = yes
+
+# progress bar
+progress_bar = true
+progress_bar_height = 10
+progress_bar_frame_width = 1
+progress_bar_min_width = 150
+progress_bar_max_width = 300
+progress_bar_corner_radius = 0
+
+# icons
+icon_corner_radius = 0
+icon_corners = all
+enable_recursive_icon_lookup = true
+icon_theme = Papirus-Dark
+icon_position = left
+min_icon_size = 32
+max_icon_size = 32
+
+# history
+sticky_history = yes
+history_length = 20
+
+transparency = 0
+sort = update
+idle_threshold = 120
+show_age_threshold = 60
+
+# mouse
+mouse_left_click = do_action, close_current
+mouse_middle_click = context, close_current
+mouse_right_click = close_all
+
+# Menu de contexto
+dmenu = rofi -dmenu -i -p "Notificações"
+
+[urgency_low]
+background = "#16161e"
+foreground = "#9ece6a"
+timeout = 5
+
+[urgency_normal]
+background = "#1a1b26"
+foreground = "#7aa2f7"
+timeout = 10
+
+[urgency_critical]
+background = "#1a1b26"
+foreground = "#f7768e"
+frame_color = "#292e42"
+timeout = 0
+override_pause_level = 100
+default_icon = dialog-warning

@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+if pgrep -x caffeinated >/dev/null; then
+    pkill caffeinated
+    notify-send "☕ Caffeine" "Desativado – idle e lock restaurados"
+else
+    caffeinated &
+    notify-send "☕ Caffeine" "Ativado – sistema acordado"
+fi
+

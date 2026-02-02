@@ -1,0 +1,14 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "6c71385"
+hash = "e2d4bfccf31e5ab05f46fee4797c5215"
+
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "ae2a1f1"
+hash = "b2afd25ad3ac851adf2a1b706d1a2add"
+
+[[flavor.deps]]
+use = "BennyOe/tokyo-night"
+rev = "8e6296f"
+hash = "d9da921c3bd37ba32ee27a8a7a40461f"
