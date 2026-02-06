@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 
 if pgrep -x caffeinated >/dev/null; then
-    pkill caffeinated
+    pkill caffeinated 
+    sway-audio-idle-inhibit &
     notify-send "☕ Caffeine" "Desativado – idle e lock restaurados"
 else
     caffeinated &
