@@ -21,12 +21,26 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.pl
 # Delayed fun: fortune + cowsay + lolcat
 # ------------------------------
 autoload -Uz add-zsh-hook
-add-zsh-hook -Uz precmd _fun_prompt
 
 _fun_prompt() {
-  fortune | cowsay -f tux | lolcat -f
+  local colors=(
+    "122;162;247"  # blue
+    "187;154;247"  # purple
+    "125;207;255"  # cyan
+    "158;206;106"  # green
+    "224;175;104"  # yellow
+    "247;118;142"  # red
+  )
+
+  local c=${colors[RANDOM % ${#colors[@]} + 1]}
+
+  fortune | cowsay -f tux | sed "s/.*/\x1b[38;2;${c}m&\x1b[0m/"
+
   add-zsh-hook -d precmd _fun_prompt
 }
+
+add-zsh-hook precmd _fun_prompt
+
 
 # ------------------------------
 # Aliases
