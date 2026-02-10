@@ -141,7 +141,7 @@ prompt {
     text-color: @normal-foreground;
 }
 inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+    children:   [ prompt,textbox-prompt-colon,entry,num-filtered-rows,textbox-num-sep,num-rows];
 }
 textbox-prompt-colon {
     expand:     false;
@@ -149,3 +149,18 @@ textbox-prompt-colon {
     margin:     0px 0.3em 0em 0em ;
     text-color: @normal-foreground;
 }
+num-filtered-rows {
+    text-color: @normal-foreground;
+    margin: 0 0px;
+}
+textbox-num-sep {
+    text: "/";
+    text-color: @normal-foreground;
+}   
+num-rows {
+    text-color: @normal-foreground;
+    margin: 0 0px;
+    str-format: "{filtered}/{total}";
+}
+
+
