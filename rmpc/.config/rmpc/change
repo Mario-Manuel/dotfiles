@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+# Incrementa playcount
+sticker=$(rmpc sticker get "$FILE" "playCount" | jq -r '.value')
+if [ -z "$sticker" ]; then
+    rmpc sticker set "$FILE" "playCount" "1"
+else
+    rmpc sticker set "$FILE" "playCount" "$((sticker + 1))"
+fi
+
+# Notificação
+TMP_DIR="/tmp/rmpc"
+mkdir -p "$TMP_DIR"
+ALBUM_ART_PATH="$TMP_DIR/notification_cover"
+DEFAULT_ALBUM_ART_PATH="$TMP_DIR/default_album_art.jpg"
+if ! rmpc albumart --output "$ALBUM_ART_PATH"; then
+    ALBUM_ART_PATH="${DEFAULT_ALBUM_ART_PATH}"
+fi
+notify-send -t 3000 -i "${ALBUM_ART_PATH}" "Now Playing" "$ARTIST - $TITLE"
+

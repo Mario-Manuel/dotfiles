@@ -1,7 +1,7 @@
 configuration {
     modi: "drun,window,run,recursivebrowser,emoji";
     show-icons: true;
-    display-drun: " ";
+    /*display-drun: " ";*/
     font: "JetBrainsMono Nerd Font 12";
 
 }

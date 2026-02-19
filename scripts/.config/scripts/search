@@ -1,0 +1,127 @@
+#!/usr/bin/env zsh
+
+# ------------------------------
+# Configurações
+# ------------------------------
+#HISTORY_DB="$HOME/.config/BraveSoftware/Brave-Browser/Default/History"
+#HISTORY_CACHE="$HOME/.cache/rofi_brave_history.txt"
+#HISTORY_LIMIT=20
+
+BRAVE_ENGINE="https://search.brave.com/search?q="
+GOOGLE_ENGINE="https://www.google.com/search?q="
+DUCK_ENGINE="https://duckduckgo.com/?q="
+WIKI_ENGINE="https://pt.wikipedia.org/wiki/Special:Search?search="
+TRANSLATE_ENGINE="https://translate.google.com/?sl=auto&tl=pt&text="
+
+# ------------------------------
+# Atualiza cache (5 min)
+# ------------------------------
+#if [[ ! -f "$HISTORY_CACHE" ]] || [[ $(find "$HISTORY_CACHE" -mmin +5) ]]; then
+#    if [[ -f "$HISTORY_DB" ]]; then
+#        tmpdb=$(mktemp)
+#        cp "$HISTORY_DB" "$tmpdb"
+#        sqlite3 "$tmpdb" \
+#        "SELECT url, title 
+#        FROM urls 
+#         ORDER BY visit_count DESC, last_visit_time DESC 
+#        LIMIT $HISTORY_LIMIT;" \
+#        | awk -F'|' '{print $2 " - " $1}' > "$HISTORY_CACHE"
+#        rm "$tmpdb"
+#    fi
+#fi
+
+# ------------------------------
+# Histórico + Clipboard
+# ------------------------------
+#history_list=$(cat "$HISTORY_CACHE" 2>/dev/null)
+#clipboard=$(wl-paste 2>/dev/null)
+
+#menu_input="$history_list"
+#if [[ -n "$clipboard" ]]; then
+#    menu_input="$clipboard\n$menu_input"
+#fi
+
+#input=$(echo -e "$menu_input\n" | rofi -dmenu -p "Search / History")
+input=$(rofi -dmenu \
+    -p "Search" \
+    -theme-str '
+        window { 
+            width: 28%; 
+	    location: center;
+            anchor: center;
+        }
+
+        listview { 
+            lines: 0; 
+        }
+
+        entry{
+            placeholder: "Type the search or URL (g:, d:, w:, t:, p:)"; 
+	}
+
+        inputbar {
+            children: [ entry ]; 
+        }
+    ')
+[ -z "$input" ] && exit
+
+# ------------------------------
+# Extrair URL ou Pesquisa
+# ------------------------------
+if [[ "$input" =~ " - " ]]; then
+    url=$(echo "$input" | awk -F' - ' '{print $NF}')
+else
+    query="$input"
+
+    private_mode=false
+
+if [[ "$query" == p:* ]]; then
+    private_mode=true
+    query="${query#p: }"
+fi
+
+    case "$query" in
+    g:*)
+        search="${query#g: }"
+        engine="$GOOGLE_ENGINE"
+        ;;
+    d:*)
+        search="${query#d: }"
+        engine="$DUCK_ENGINE"
+        ;;
+    b:*)
+        search="${query#b: }"
+        engine="$BRAVE_ENGINE"
+        ;;
+    w:*)
+        search="${query#w: }"
+        engine="$WIKI_ENGINE"
+        ;;
+    t:*)
+        search="${query#t: }"
+        engine="$TRANSLATE_ENGINE"
+        ;;
+    *)
+        search="$query"
+        engine="$BRAVE_ENGINE"
+        ;;
+esac
+
+    if [[ "$engine" == "$TRANSLATE_ENGINE" ]] || [[ "$search" == *" "* ]] || [[ "$search" != *"."* ]]; then
+        encoded=$(printf %s "$search" | jq -sRr @uri)
+        url="${engine}${encoded}"
+    else
+        [[ "$search" =~ ^https?:// ]] || search="https://$search"
+        url="$search"
+    fi
+fi
+
+# ------------------------------
+# Escolher modo
+# ------------------------------
+if [[ "$private_mode" == true ]]; then
+    brave --incognito "$url"
+else
+    brave "$url"
+fi
+
