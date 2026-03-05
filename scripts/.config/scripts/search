@@ -43,10 +43,10 @@ TRANSLATE_ENGINE="https://translate.google.com/?sl=auto&tl=pt&text="
 
 #input=$(echo -e "$menu_input\n" | rofi -dmenu -p "Search / History")
 input=$(rofi -dmenu \
-    -p "Search" \
+    -p "Brave" \
     -theme-str '
         window { 
-            width: 28%; 
+            width: 32%; 
 	    location: center;
             anchor: center;
         }
@@ -60,7 +60,7 @@ input=$(rofi -dmenu \
 	}
 
         inputbar {
-            children: [ entry ]; 
+            children: [ prompt,textbox-prompt-colon,entry ]; 
         }
     ')
 [ -z "$input" ] && exit
