@@ -69,6 +69,7 @@ window#waybar {
 #cpu { color: @red; }
 #memory { color: @green; }
 #custom-media { color: @blue; }
+#custom-audio_idle_inhibitor { color: @purple;}
 
 #bluetooth { color: @yellow; }
 #network { color: @purple; }

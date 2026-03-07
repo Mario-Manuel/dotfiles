@@ -2,7 +2,6 @@
 
 if pgrep -x caffeinated >/dev/null; then
     pkill caffeinated 
-    sway-audio-idle-inhibit &
     notify-send "☕ Caffeine" "Desativado – idle e lock restaurados"
 else
     caffeinated &

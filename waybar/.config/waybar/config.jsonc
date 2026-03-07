@@ -1,5 +1,5 @@
 {
-    "modules-left": ["ext/workspaces", "custom/media", "custom/dnd"],
+    "modules-left": ["ext/workspaces", "custom/media", "custom/audio_idle_inhibitor", "custom/dnd"],
     "modules-center": ["clock"],
     "modules-right": [
         "tray",
@@ -66,7 +66,7 @@
         "format-plugged": " {capacity}%",
         "format-charging": " {capacity}%",
         "format-icons": ["", "", "", "", ""],
-	"tooltip-format": "{time}", 
+        "tooltip-format": "{time}" 
     },
 
     "pulseaudio": {
@@ -83,9 +83,9 @@
     },
     
     "cpu": {
-    	"format": "CPU: {usage}%",
-	"interval": 2,
-    	"tooltip": false
+        "format": "CPU: {usage}%",
+        "interval": 2,
+        "tooltip": false
     },
 
     "memory": {
@@ -113,15 +113,28 @@
         "exec": "status=$(playerctl status 2>/dev/null); meta=$(playerctl metadata --format '{{ artist }} - {{ title }}' 2>/dev/null); [ -z \"$meta\" ] && exit; case \"$status\" in Playing) icon='⏸' ;; Paused) icon='▶' ;; *) exit ;; esac; echo \"$icon $meta\"",
         "interval": 2,
         "return-type": "text",
-        "max-length": 20,
+        "max-length": 20
     },
 
     "custom/dnd": {
     	"exec": "if [ \"$(dunstctl is-paused)\" = true ]; then echo '🔕'; else echo ''; fi",
     	"interval": 2,
     	"return-type": "markup",
-    	"tooltip": "DND ativo"
-}
-
+    	"tooltip-format": "DND ativo"
+        
+},
+    "custom/audio_idle_inhibitor": {
+        "format": "{icon}",
+        "exec": "sway-audio-idle-inhibit --dry-print-both-waybar",
+        "exec-if": "which sway-audio-idle-inhibit",
+        "return-type": "json",
+        "tooltip": false,
+		"format-icons": {
+			"output": " ",
+			"input": " ",
+			"output-input": "   ",
+			"none": ""
+		}
+    }
 }
 
