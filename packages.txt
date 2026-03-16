@@ -1,3 +1,4 @@
+7zip
 alsa-utils
 ananicy-cpp
 android-file-transfer
@@ -64,6 +65,7 @@ gvfs
 gvfs-mtp
 gvfs-smb
 hunspell
+informant
 inotify-tools
 intel-ucode
 ipcalc

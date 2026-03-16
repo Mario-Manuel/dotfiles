@@ -51,6 +51,7 @@ alias la='eza -lAh --icons --git --group-directories-first'
 alias ff='fastfetch'
 alias cat='bat'
 alias cd='z'
+alias bp="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 
 # ------------------------------
 # PATH
