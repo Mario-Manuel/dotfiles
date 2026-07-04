@@ -1,0 +1,38 @@
+MenuBar=Disabled
+
+[ContextMenu]
+ShowAddToPlaces=false
+ShowMoveToOtherSplitView=false
+ShowOpenInNewWindow=false
+ShowSortBy=false
+ShowViewMode=false
+
+[ExtractDialog]
+2 screens: Height=480
+2 screens: Width=961
+DirHistory[$e]=/mnt/hdd/Imagens/,/mnt/hdd/Games/
+
+[General]
+OpenExternallyCalledFolderInNewTab=true
+RememberOpenedTabs=false
+Version=202
+ViewPropsTimestamp=2026,4,15,18,32,8.335
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
+
+[MainWindow]
+MenuBar=Disabled
+
+[MainWindow][Toolbar mainToolBar]
+ToolButtonStyle=IconOnly
+
+[Notification Messages]
+warnAboutRisksBeforeActingAsAdmin=false
+
+[PreviewSettings]
+Plugins=cursorthumbnail,audiothumbnail,djvuthumbnail,blenderthumbnail,mobithumbnail,comicbookthumbnail,ebookthumbnail,windowsexethumbnail,imagethumbnail,windowsimagethumbnail,exrthumbnail,jpegthumbnail,svgthumbnail
+
+[Toolbar mainToolBar]
+ToolButtonStyle=IconOnly
