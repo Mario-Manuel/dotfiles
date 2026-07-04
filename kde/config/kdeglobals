@@ -1,0 +1,202 @@
+[ColorEffects:Disabled]
+ChangeSelectionColor=
+Color=56,57,71
+ColorAmount=0.55
+ColorEffect=3
+ContrastAmount=0.65
+ContrastEffect=1
+Enable=
+IntensityAmount=0.1
+IntensityEffect=2
+
+[ColorEffects:Inactive]
+ChangeSelectionColor=true
+Color=56,57,71
+ColorAmount=0.025
+ColorEffect=2
+ContrastAmount=0.1
+ContrastEffect=2
+Enable=false
+IntensityAmount=0
+IntensityEffect=0
+
+[Colors:Button]
+BackgroundAlternate=34,36,50
+BackgroundNormal=26,28,38
+DecorationFocus=123,127,202
+DecorationHover=94,196,192
+ForegroundActive=123,127,202
+ForegroundInactive=133,137,168
+ForegroundLink=94,196,192
+ForegroundNegative=224,127,127
+ForegroundNeutral=232,168,124
+ForegroundNormal=197,201,224
+ForegroundPositive=124,200,152
+ForegroundVisited=191,159,224
+
+[Colors:Complementary]
+BackgroundAlternate=14,15,23
+BackgroundNormal=19,20,30
+DecorationFocus=123,127,202
+DecorationHover=94,196,192
+ForegroundActive=123,127,202
+ForegroundInactive=74,79,106
+ForegroundLink=94,196,192
+ForegroundNegative=224,127,127
+ForegroundNeutral=232,168,124
+ForegroundNormal=197,201,224
+ForegroundPositive=124,200,152
+ForegroundVisited=191,159,224
+
+[Colors:Header]
+BackgroundAlternate=14,15,23
+BackgroundNormal=19,20,30
+DecorationFocus=123,127,202
+DecorationHover=94,196,192
+ForegroundActive=197,201,224
+ForegroundInactive=74,79,106
+ForegroundLink=94,196,192
+ForegroundNegative=224,127,127
+ForegroundNeutral=232,168,124
+ForegroundNormal=197,201,224
+ForegroundPositive=124,200,152
+ForegroundVisited=191,159,224
+
+[Colors:Selection]
+BackgroundAlternate=94,76,168
+BackgroundNormal=123,127,202
+DecorationFocus=197,201,224
+DecorationHover=232,234,245
+ForegroundActive=232,234,245
+ForegroundInactive=197,201,224
+ForegroundLink=94,196,192
+ForegroundNegative=224,127,127
+ForegroundNeutral=232,168,124
+ForegroundNormal=232,234,245
+ForegroundPositive=124,200,152
+ForegroundVisited=191,159,224
+
+[Colors:Tooltip]
+BackgroundAlternate=34,36,50
+BackgroundNormal=26,28,38
+DecorationFocus=123,127,202
+DecorationHover=94,196,192
+ForegroundActive=123,127,202
+ForegroundInactive=133,137,168
+ForegroundLink=94,196,192
+ForegroundNegative=224,127,127
+ForegroundNeutral=232,168,124
+ForegroundNormal=197,201,224
+ForegroundPositive=124,200,152
+ForegroundVisited=191,159,224
+
+[Colors:View]
+BackgroundAlternate=26,28,38
+BackgroundNormal=19,20,30
+DecorationFocus=123,127,202
+DecorationHover=94,196,192
+ForegroundActive=123,127,202
+ForegroundInactive=133,137,168
+ForegroundLink=94,196,192
+ForegroundNegative=224,127,127
+ForegroundNeutral=232,168,124
+ForegroundNormal=197,201,224
+ForegroundPositive=124,200,152
+ForegroundVisited=191,159,224
+
+[Colors:Window]
+BackgroundAlternate=26,28,38
+BackgroundNormal=19,20,30
+DecorationFocus=123,127,202
+DecorationHover=94,196,192
+ForegroundActive=123,127,202
+ForegroundInactive=74,79,106
+ForegroundLink=94,196,192
+ForegroundNegative=224,127,127
+ForegroundNeutral=232,168,124
+ForegroundNormal=197,201,224
+ForegroundPositive=124,200,152
+ForegroundVisited=191,159,224
+
+[General]
+BrowserApplication=brave-browser.desktop
+ColorScheme=Midnite
+ColorSchemeHash=53ae711c0e599298f73aba4c5dfe4a26de56e6e3
+UseSystemBell=true
+XftAntialias=true
+XftHintStyle=hintslight
+XftSubPixel=none
+fixed=JetBrainsMono Nerd Font,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+font=JetBrainsMono Nerd Font,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+menuFont=JetBrainsMono Nerd Font,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+smallestReadableFont=JetBrainsMono Nerd Font,8,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+toolBarFont=JetBrainsMono Nerd Font,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+
+[Icons]
+Theme=Papirus-Dark
+
+[KDE]
+AnimationDurationFactor=0
+LookAndFeelPackage=org.fedoraproject.fedoradark.desktop
+ShowDeleteCommand=false
+contrast=4
+frameContrast=0.2
+
+[KFileDialog Settings]
+Allow Expansion=false
+Automatically select filename extension=false
+Breadcrumb Navigation=true
+Decoration position=2
+Show Full Path=false
+Show Inline Previews=true
+Show Preview=false
+Show Speedbar=true
+Show hidden files=true
+Sort by=Name
+Sort directories first=true
+Sort hidden files last=false
+Sort reversed=false
+Speedbar Width=146
+View Style=DetailTree
+
+[KShortcutsDialog Settings]
+Dialog Size=608,480
+
+[PreviewSettings]
+EnableRemoteFolderThumbnail=false
+MaximumRemoteSize=0
+MaximumSize=5242880
+
+[Shortcuts]
+AboutApp=
+AboutKDE=
+Clear=
+ConfigureNotifications=
+ConfigureToolbars=
+Cut=Ctrl+X
+Donate=
+EditBookmarks=
+FitToHeight=
+FitToPage=
+FitToWidth=
+Goto=
+GotoPage=
+Mail=
+OpenRecent=
+PrintPreview=
+ReportBug=
+Revert=
+ShowStatusbar=
+ShowToolbar=
+Spelling=
+SwitchApplicationLanguage=
+Zoom=
+
+[WM]
+activeBackground=19,20,30
+activeBlend=19,20,30
+activeFont=JetBrainsMono Nerd Font,10,-1,5,600,1,0,0,0,0,0,0,0,0,0,1,SemiBold Italic
+activeForeground=197,201,224
+inactiveBackground=14,15,23
+inactiveBlend=14,15,23
+inactiveForeground=74,79,106

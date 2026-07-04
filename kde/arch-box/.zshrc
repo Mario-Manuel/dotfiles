@@ -6,11 +6,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # ==============================
-# Global Fedora config
-# ==============================
-[[ -f /etc/zshrc ]] && source /etc/zshrc
-
-# ==============================
 # PATH
 # ==============================
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
@@ -27,17 +22,41 @@ fi
 # ==============================
 # Powerlevel10k theme
 # ==============================
-source ~/.local/share/powerlevel10k/powerlevel10k.zsh-theme
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+for p in \
+  ~/.local/share/powerlevel10k/powerlevel10k.zsh-theme \
+  /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+do
+  [[ -f "$p" ]] && source "$p" && break
+done
 
 # ==============================
 # Plugins
 # ==============================
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# zsh-autosuggestions
+[[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-[[ -f /usr/share/fzf/shell/key-bindings.zsh ]] && source /usr/share/fzf/shell/key-bindings.zsh
-[[ -f /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
+[[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
+# zsh-syntax-highlighting
+[[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+# fzf
+[[ -f /usr/share/fzf/shell/key-bindings.zsh ]] && \
+    source /usr/share/fzf/shell/key-bindings.zsh
+
+[[ -f /usr/share/fzf/completion.zsh ]] && \
+    source /usr/share/fzf/completion.zsh
+
+[[ -f /usr/share/fzf/key-bindings.zsh ]] && \
+    source /usr/share/fzf/key-bindings.zsh
 
 # ==============================
 # Delayed fun: fortune + cowsay + lolcat
@@ -72,6 +91,8 @@ alias la='eza -lAh --icons --git --group-directories-first'
 alias ff='fastfetch'
 alias cat='bat'
 alias cd='z'
+alias dl='aria2c -c -d ~/Downloads -x 8 -s 8 -k 1M --min-split-size=1M --file-allocation=trunc --max-tries=0 --retry-wait=5 --summary-interval=0 --console-log-level=warn'
+alias upall='sudo dnf upgrade --refresh && flatpak upgrade'
 
 # ==============================
 # Yazi integration
@@ -88,7 +109,7 @@ function y() {
 # ==============================
 # Default programs
 # ==============================
-export EDITOR="/usr/bin/nvim"
+export EDITOR="nvim"
 export TERMINAL="konsole"
 export BROWSER="brave"
 
@@ -157,3 +178,10 @@ bindkey -e
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 bindkey '^[[C' forward-char
+
+if [[ -n "$PS1" ]]; then
+  cd ~
+fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
